@@ -1,57 +1,41 @@
+import AuthUser from 'components/auth';
+import Beginer from 'components/beginer';
+import ItemsTable from 'components/itemsTable';
+import ShowSucess from 'components/showSuccess';
+import ShowTotal from 'components/showTotal';
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
-
+import { AppStyle, ShowTotalStl, SuccessBox, SuccessBoxSte, MainApp } from 'app.style';
+import { Row, Col } from 'antd';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <AppStyle>
+      <Row justify="end">
+        <AuthUser />
+      </Row>
+      <MainApp>
+        <h1>Bầu Cua</h1>
+        <ShowTotalStl>
+          <Col span="24">
+            <ShowTotal />
+          </Col>
+        </ShowTotalStl>
+        <Row>
+          <Col offset="4" span="12">
+            <ItemsTable />
+          </Col>
+          <SuccessBox>
+            <SuccessBoxSte
+              style={{ alignItems: 'center', justifyContent: 'center', display: 'flex' }}
+            >
+              <ShowSucess />
+            </SuccessBoxSte>
+            <Col>
+              <Beginer />
+            </Col>
+          </SuccessBox>
+        </Row>
+      </MainApp>
+    </AppStyle>
   );
 }
 
